@@ -11,7 +11,7 @@ Base = declarative_base()
 
 # Подключение к БД
 engine = create_engine(
-    'postgres://waactudsnfbwxu:e73f01ad438e68683523415d9317065e7e3995a036d26451c6fe166b186cc775@ec2-54-75-231-215.eu-west-1.compute.amazonaws.com:5432/d6cpom1s22furu',
+    'postgres://dosjjhzozaoemz:f333ab03aa1b9f0701f637afeb29729bff3c62b91ca722d9363017bd6daff41a@ec2-18-233-137-77.compute-1.amazonaws.com:5432/de16p49m85nt7h',
     echo=True)
 
 metadata = MetaData()
