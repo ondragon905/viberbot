@@ -181,11 +181,10 @@ def show_start_area(viber_request, userID):
     # Имя пользователя
     user_name = user.get_name_user(userID)
     if data_us[0] == None:
-        message = "Приветствую вас, " + user_name + "!\n" + \
-                  "Этот бот предназначен для заучивания английских слов. Для начала работы введите start или нажмите " \
-                  "на кнопку внизу. "
+        message = "Привет, " + user_name + "!\n" + \
+                  "Этот бот предназначен для заучивания английских слов. Для начала работы нажмите на кнопку внизу. "
     else:
-        message = "Приветствую вас, " + user_name + "!\n" + f"Время последнего прохождения опроса: {data_us[0]}" + ".\n" + \
+        message = "Привет, " + user_name + "!\n" + f"Время последнего прохождения опроса: {data_us[0]}" + ".\n" + \
                   f" Количество выученных слов: {data_us[1]}" + f". Количесвто слов, которые находятся в процессе " \
                                                                 f"заучивания: {data_us[2]}" + ". "
     # Отправка сообщения
@@ -287,7 +286,7 @@ def check_answer(viber_request, user1, raund):
         num_correct_answer += 1
         count_ok_answer = learn.set_learning(user1, viber_request.message.text[len_count_raund:], 1)
         # Отправка сообщения
-        message = f"Ответ правильный. Количество правильных ответов на данное слово: {count_ok_answer}"
+        message = f"Ответ правильный. Количество правильных ответов на это слово: {count_ok_answer}"
         viber.send_messages(user1, [
             TextMessage(text=message)
         ])
@@ -299,7 +298,7 @@ def check_answer(viber_request, user1, raund):
         learn.reset_true_answer(user1, viber_request.message.text)
         count_ok_answer = learn.set_learning(user1, viber_request.message.text[len_count_raund:], 0)
         # Отправка сообщения
-        message = f"Ответ неправильный. Количество правильных ответов на данное слово: {count_ok_answer}"
+        message = f"Ответ неправильный. Количество правильных ответов на это слово: {count_ok_answer}"
         viber.send_messages(user1, [
             TextMessage(text=message)
         ])
@@ -315,7 +314,7 @@ def send_result_message(user1):
     count_incorrect = DataRaund.get_one_answer(user1)[2]
 
     # Сообщение
-    message = f"Результат раунда. Правильных слов: {count_correct}, неверных ответов: {count_incorrect}"
+    message = f"Результат теста. Правильных ответов: {count_correct}, неверных ответов: {count_incorrect}"
 
     # Отправка сообщения
     viber.send_messages(user1, [
@@ -327,7 +326,7 @@ def clock_message(user):
     try:
         # Сообщение
         message = f"Прошло {Settings.get_clock_time()} минут с момента последнего прохождения теста!" \
-                  f" Пройдите заново, чтобы не забыть ранее изученные слова!"
+                  f" Пройдите тест заново, чтобы не забыть изученные слова!"
         # Отправка сообщения
         viber.send_messages(user, [
             TextMessage(text=message,
