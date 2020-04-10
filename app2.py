@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # Инициализация Viber-бота
 viber = Api(BotConfiguration(
-    name='FeaR',
+    name='TranslatorBot',
     avatar='https://viber.com/avatar/jpg',
     auth_token=TOKEN
 ))
