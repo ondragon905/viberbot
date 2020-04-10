@@ -6,12 +6,12 @@
 </head>
     <body>
     <form method="GET" action="/result_settings">
-        Время, через которое бот будет напоминать о необходимости повторить слова:
-        <input type="text" name="time_remiend" value = {{time}}><br>
-        Количество слов в одном раунде заучивания:
-        <input type="text" name="count_word" value = {{count_word_raund}}><br>
-        Количество правильных ответов, после которых считается, что слово выучено:
-        <input type="text" name="count_answer" value = {{count_true_answer}}><br>
+        Укажите промежуток времени для уведомлений:
+        <input type="text" name="time_remiend" value = {{time}}><br><br>
+        Количество слов в тесте:
+        <input type="text" name="count_word" value = {{count_word_raund}}><br><br>
+        Количество правильных ответов, после которых слово будет считаться выученным:
+        <input type="text" name="count_answer" value = {{count_true_answer}}><br><br>
         <input type="submit" value="Сохранить"><br><br>
     </form>
 
